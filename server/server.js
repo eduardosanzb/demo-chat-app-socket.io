@@ -21,8 +21,11 @@ io.on('connection', (socket) => {
 	socket.on('disconnect', () => {
 		console.log('User disconnected');
 	});
-	socket.on('createMessage', ({from, text}) => {
+	socket.on('createMessage', ({from, text}, callback) => {
 		socket.broadcast.emit('newMessage', generateMessage(from, text));
+		callback({
+			success: true
+		});
 	});
 });
 
