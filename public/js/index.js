@@ -1,10 +1,6 @@
 const socket = io();
 socket.on('connect', () => {
 	console.log('Connected!');
-	socket.emit('createMessage', {
-		to: 'edu@example.com',
-		text: 'Yeah'
-	});
 });
 
 socket.on('disconnect', () => {
